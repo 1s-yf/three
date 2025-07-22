@@ -7,9 +7,11 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
+  actions: write
+  deployments: write
 
 concurrency:
   group: "pages"
@@ -28,8 +30,6 @@ jobs:
           cache: npm
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        with:
-          enablement: true
       - name: Install dependencies
         run: npm ci
       - name: Build with Next.js
