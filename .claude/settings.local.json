@@ -29,7 +29,15 @@
       "Bash(mkdir:*)",
       "Bash(ls:*)",
       "Bash(npm run start:*)",
-      "Bash(next start:*)"
+      "Bash(next start:*)",
+      "Bash(curl:*)",
+      "Bash(find:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(rm:*)",
+      "Bash(sed:*)",
+      "Bash(timeout:*)"
     ],
     "deny": []
   }
