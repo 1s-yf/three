@@ -1,0 +1,7 @@
+# 启用GitHub Pages的配置
+enablement: true
+
+# GitHub Pages设置
+source:
+  branch: master
+  path: /
