@@ -38,7 +38,8 @@
       "Bash(rm:*)",
       "Bash(sed:*)",
       "Bash(timeout:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(git remote:*)"
     ],
     "deny": []
   }
