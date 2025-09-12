@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:vercel": "NEXT_PUBLIC_BASE_PATH= NEXT_PUBLIC_VERCEL=true next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",

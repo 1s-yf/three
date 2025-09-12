@@ -55,16 +55,6 @@ export default function BiographyNarrative({ biography, familyColor, familyName 
                     <p className="text-stone-700 leading-relaxed text-lg font-sans">{section.content}</p>
                   </div>
 
-                  {section.image && (
-                    <div className="mt-6">
-                      <img
-                        src={section.image}
-                        alt={section.title}
-                        className="w-full h-64 object-cover rounded-lg shadow-md"
-                      />
-                      <p className="text-sm text-stone-600 mt-2 text-center italic">{section.title}相关图片</p>
-                    </div>
-                  )}
                 </div>
               </div>
             </article>

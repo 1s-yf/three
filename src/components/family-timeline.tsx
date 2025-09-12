@@ -10,8 +10,6 @@ interface FamilyTimelineProps {
 }
 
 export default function FamilyTimeline({ members, familyColor }: FamilyTimelineProps) {
-  const [selectedMember, setSelectedMember] = useState<string | null>(null);
-
   const sortedMembers = [...members].sort((a, b) => a.birthYear - b.birthYear);
 
   return (
@@ -51,11 +49,8 @@ export default function FamilyTimeline({ members, familyColor }: FamilyTimelineP
                   }`}
                 >
                   <div
-                    className={`bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-l-4 hover:border-l-8 ${
-                      selectedMember === member.id ? 'border-l-8 shadow-xl' : 'border-stone-300'
-                    }`}
-                    style={{ borderLeftColor: selectedMember === member.id ? familyColor : undefined }}
-                    onClick={() => setSelectedMember(selectedMember === member.id ? null : member.id)}
+                    className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-stone-300"
+                    style={{ borderLeftColor: familyColor }}
                   >
                     <div className="mb-3">
                       <h3 className="text-lg font-bold text-stone-800 mb-1 font-serif">{member.name}</h3>
@@ -80,40 +75,56 @@ export default function FamilyTimeline({ members, familyColor }: FamilyTimelineP
                       )}
                     </div>
 
-                    {selectedMember === member.id && (
-                      <div className="mt-4 pt-4 border-t border-stone-200">
-                        <p className="text-sm text-stone-700 leading-relaxed font-sans">
-                          {member.biography}
-                        </p>
-                        
-                        {member.achievements && member.achievements.length > 0 && (
-                          <div className="mt-3">
-                            <h4 className="text-xs font-semibold text-stone-600 mb-2 flex items-center">
-                              <Award size={12} className="mr-1" />
-                              主要成就：
-                            </h4>
-                            <ul className="text-xs text-stone-600 space-y-1">
-                              {member.achievements.map((achievement, idx) => (
-                                <li key={idx} className="flex items-center">
-                                  <span className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: familyColor }}></span>
-                                  {achievement}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                        
-                        {member.image && (
-                          <div className="mt-4">
-                            <img
-                              src={member.image}
+                    <div className="mt-4 pt-4 border-t border-stone-200">
+                      <p className="text-sm text-stone-700 leading-relaxed font-sans">
+                        {member.biography}
+                      </p>
+                      
+                      {member.achievements && member.achievements.length > 0 && (
+                        <div className="mt-3">
+                          <h4 className="text-xs font-semibold text-stone-600 mb-2 flex items-center">
+                            <Award size={12} className="mr-1" />
+                            主要成就：
+                          </h4>
+                          <ul className="text-xs text-stone-600 space-y-1">
+                            {member.achievements.map((achievement, idx) => (
+                              <li key={idx} className="flex items-center">
+                                <span className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: familyColor }}></span>
+                                {achievement}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      <div className="mt-4 flex justify-center">
+                        <div className="w-32 h-40 bg-gradient-to-br from-stone-50 to-amber-50 rounded-lg shadow-sm border border-stone-200 group relative overflow-hidden">
+                          {member.image ? (
+                            <img 
+                              src={member.image} 
                               alt={member.name}
-                              className="w-full h-48 object-cover rounded-md shadow-sm"
+                              className="w-full h-full object-cover rounded-lg"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                const placeholder = target.nextElementSibling as HTMLElement;
+                                if (placeholder) placeholder.style.display = 'flex';
+                              }}
                             />
+                          ) : null}
+                          <div 
+                            className="absolute inset-0 bg-gradient-to-br from-stone-100/50 to-amber-100/50 flex flex-col items-center justify-center text-center p-2"
+                            style={{ display: member.image ? 'none' : 'flex' }}
+                          >
+                            <div className="w-16 h-16 bg-gradient-to-br from-stone-200 to-amber-200 rounded-full mx-auto mb-2 flex items-center justify-center shadow-sm">
+                              <User size={24} className="text-stone-600" />
+                            </div>
+                            <p className="text-xs font-medium text-stone-700 leading-tight">{member.name}</p>
+                            <p className="text-xs text-stone-500 mt-1">{member.image ? '成员照' : '暂无'}</p>
                           </div>
-                        )}
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
               </div>

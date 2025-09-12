@@ -40,7 +40,12 @@
       "Bash(timeout:*)",
       "Bash(npm install:*)",
       "Bash(git remote:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(dir:*)",
+      "Bash(powershell:*)",
+      "Bash(rg:*)",
+      "Bash(awk:*)",
+      "Bash(perl:*)"
     ],
     "deny": []
   }

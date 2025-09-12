@@ -4,12 +4,13 @@ import { useState } from 'react';
 import { Menu, X, Home } from 'lucide-react';
 
 const navItems = [
+  { name: '家风展示馆', href: '#hero' },
+  { name: '十姓简介', href: '#family-grid' },
+  { name: '家风荟萃', href: '#family-heritage' },
   { name: '关于我们', href: '#about' },
   { name: '活动花絮', href: '#gallery' },
   { name: '视频回顾', href: '#videos' },
-  { name: '时间轴', href: '#timeline' },
-  { name: '活动心得', href: '#reflections' },
-  { name: '联系我们', href: '#contact' },
+  { name: '结束页面', href: '#closing' },
 ];
 
 interface NavigationProps {

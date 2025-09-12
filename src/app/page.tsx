@@ -2,20 +2,22 @@
 
 import { useState, useEffect } from 'react';
 import { families, FamilyData } from '@/data/families';
+import { familyHistories } from '@/data/family-histories';
 import FamilyNavigation from '@/components/family-navigation';
 import FamilyTimeline from '@/components/family-timeline';
-import BiographyNarrative from '@/components/biography-narrative';
+import BiographyNarrativeUpdated from '@/components/biography-narrative-updated';
 import ImageGallery from '@/components/image-gallery';
-import ResearchArticles from '@/components/research-articles';
 import Navigation from '@/components/navigation';
 import Hero from '@/components/hero';
 import About from '@/components/about';
+import FamilyHeritage from '@/components/family-heritage';
+import FamilyGrid from '@/components/family-grid';
 import Gallery from '@/components/gallery';
 import Videos from '@/components/videos';
-import Timeline from '@/components/timeline';
-import Reflections from '@/components/reflections';
-import Contact from '@/components/contact';
+import ClosingPage from '@/components/closing-page';
 import Footer from '@/components/footer';
+import FamilyNotes from '@/components/family-notes';
+import FamilyMediaGallery from '@/components/family-media-gallery';
 
 export default function Home() {
   const [selectedFamily, setSelectedFamily] = useState<string | null>(null);
@@ -23,9 +25,9 @@ export default function Home() {
   const [opacity, setOpacity] = useState(1);
   const [currentView, setCurrentView] = useState<'home' | 'family'>('home');
 
-  // 首页六大皖南名门家训体系
+  // 首页皖南十姓家训体系
   const prominentFamilies = families.filter(f => 
-    ['mei', 'qian', 'tao', 'hu', 'zha', 'placeholder'].includes(f.id)
+    ['mei', 'hu', 'tao', 'zhu', 'wang', 'xu', 'huang', 'zhang', 'cheng', 'wang_s'].includes(f.id)
   );
 
   const currentFamily = families.find(f => f.id === selectedFamily) || families[0];
@@ -63,14 +65,28 @@ export default function Home() {
           onFamilySelect={handleFamilySelect}
           prominentFamilies={prominentFamilies}
         />
-        <main className="ml-16">
+        <main className="ml-60">
+          {/* 1. 皖南家风展示馆页面 - Hero section */}
           <Hero onExploreClick={() => setCurrentView('family')} />
+          
+          {/* 2. 皖南十姓简介页面 - Family Grid section */}
+          <FamilyGrid />
+          
+          {/* 3. 皖南十姓家风荟萃页面 - Family Heritage section */}
+          <FamilyHeritage />
+          
+          {/* 4. 关于我们 - About section */}
           <About />
+          
+          {/* 5. 活动花絮 - Gallery section */}
           <Gallery />
+          
+          {/* 6. 视频回顾 - Videos section */}
           <Videos />
-          <Timeline />
-          <Reflections />
-          <Contact />
+          
+          {/* 7. 结束页面 */}
+          <ClosingPage />
+          
           <Footer />
         </main>
       </div>
@@ -89,7 +105,7 @@ export default function Home() {
       />
 
       <main 
-        className="ml-16 transition-opacity duration-300" 
+        className="ml-60 transition-opacity duration-300" 
         style={{ opacity }}
       >
         <div className="min-h-screen py-8 px-8 pt-24">
@@ -139,8 +155,12 @@ export default function Home() {
           ) : (
             <div className="space-y-12">
               <section id="biography">
-                <BiographyNarrative
-                  biography={currentFamily.biography}
+                <BiographyNarrativeUpdated
+                  familyHistory={familyHistories[currentFamily.id] || {
+                    家学渊源: '家学渊源内容丰富，传承有序',
+                    家风传承: '家风传承特色鲜明，影响深远',
+                    地理位置: '地理位置优越，文化底蕴深厚'
+                  }}
                   familyColor={currentFamily.color}
                   familyName={currentFamily.name}
                 />
@@ -153,21 +173,22 @@ export default function Home() {
                 />
               </section>
 
-              <section id="gallery">
-                <ImageGallery
-                  gallery={currentFamily.gallery}
+              <section id="media-gallery">
+                <FamilyMediaGallery
+                  familyId={currentFamily.id}
+                  familyName={currentFamily.name}
                   familyColor={currentFamily.color}
                 />
               </section>
 
-              <section id="articles">
-                <ResearchArticles
-                  articles={currentFamily.articles}
-                  familyColor={currentFamily.color}
-                />
-              </section>
             </div>
           )}
+
+          <FamilyNotes 
+            familyId={currentFamily.id} 
+            familyName={currentFamily.name} 
+            familyColor={currentFamily.color} 
+          />
         </div>
       </main>
     </div>

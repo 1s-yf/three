@@ -11,12 +11,12 @@ interface FamilySidebarProps {
 
 export default function FamilySidebar({ selectedFamily, onFamilySelect, prominentFamilies }: FamilySidebarProps) {
   return (
-    <aside className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-60 bg-gradient-to-b from-stone-50 to-stone-100 border-r border-stone-300 shadow-lg z-30 overflow-y-auto">
+    <aside className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-60 bg-gradient-to-b from-stone-50 to-stone-100 border-r border-stone-300 shadow-lg z-40 overflow-y-auto">
       <div className="p-4 border-b border-stone-200 bg-gradient-to-r from-amber-50 to-amber-100">
         <h2 className="text-xl font-bold text-stone-800 font-serif text-center">
-          六大名门
+          皖南十姓
         </h2>
-        <p className="text-sm text-stone-600 text-center mt-1">家训体系</p>
+        <p className="text-sm text-stone-600 text-center mt-1">家风荟萃</p>
       </div>
 
       <nav className="p-3">

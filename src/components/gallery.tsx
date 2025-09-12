@@ -7,20 +7,26 @@ interface Photo {
   id: number;
   title: string;
   category: string;
+  src: string;
+  alt: string;
 }
 
 export default function Gallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
 
   const photos: Photo[] = [
-    { id: 1, title: '团队合影', category: '集体照' },
-    { id: 2, title: '义诊现场', category: '医疗活动' },
-    { id: 3, title: '支教课堂', category: '教育活动' },
-    { id: 4, title: '文艺晚会', category: '文化活动' },
-    { id: 5, title: '调研走访', category: '调研活动' },
-    { id: 6, title: '农家体验', category: '生活体验' },
-    { id: 7, title: '村民交流', category: '互动交流' },
-    { id: 8, title: '成果展示', category: '活动总结' },
+    { id: 1, title: '校门口合照', category: '集体照', src: '/校门口合照.jpg', alt: '团队在校门口的合照' },
+    { id: 2, title: '徽州古城合照', category: '集体照', src: '/徽州古城合照.jpg', alt: '团队在徽州古城的合照' },
+    { id: 3, title: '祠堂合照', category: '集体照', src: '/祠堂合照.jpg', alt: '团队在祠堂前的合照' },
+    { id: 4, title: '参观学习', category: '活动记录', src: '/参观.jpg', alt: '团队成员参观学习' },
+    { id: 5, title: '孝文化学习', category: '文化体验', src: '/孝.jpg', alt: '孝文化学习体验' },
+    { id: 6, title: '家风馆参观', category: '文化体验', src: '/家风馆.jpg', alt: '参观家风馆' },
+    { id: 7, title: '古建筑欣赏', category: '文化体验', src: '/建筑.jpg', alt: '古建筑欣赏' },
+    { id: 8, title: '泾县桃花潭', category: '景点参观', src: '/泾县桃花潭.jpg', alt: '泾县桃花潭景区' },
+    { id: 9, title: '梅曾亮故居', category: '文化参观', src: '/梅曾亮.jpg', alt: '参观梅曾亮故居' },
+    { id: 10, title: '王稼祥故居', category: '红色教育', src: '/王稼祥.jpg', alt: '参观王稼祥故居' },
+    { id: 11, title: '陶行知雕像', category: '文化参观', src: '/陶行知雕像.jpg', alt: '陶行知雕像前合影' },
+    { id: 12, title: '采访活动', category: '调研活动', src: '/采访.jpg', alt: '团队成员进行采访' },
   ];
 
   return (
@@ -42,16 +48,11 @@ export default function Gallery() {
               onClick={() => setSelectedPhoto(photo)}
             >
               <div className="aspect-square bg-gray-200 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-red-600 text-xs">照片
-                        <br />占位
-                      </span>
-                    </div>
-                    <p className="text-gray-500 text-sm">{photo.title}</p>
-                  </div>
-                </div>
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <div className="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/20 transition-colors"></div>
               </div>
               <div className="p-4 bg-white">
@@ -80,13 +81,15 @@ export default function Gallery() {
             
             <div className="bg-white rounded-lg overflow-hidden">
               <div className="aspect-video bg-gray-200 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-red-600">大图占位</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{selectedPhoto.title}</h3>
-                  <p className="text-red-600">{selectedPhoto.category}</p>
-                </div>
+                <img
+                  src={selectedPhoto.src}
+                  alt={selectedPhoto.alt}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{selectedPhoto.title}</h3>
+                <p className="text-red-600">{selectedPhoto.category}</p>
               </div>
             </div>
           </div>

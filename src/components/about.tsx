@@ -1,13 +1,4 @@
 export default function About() {
-  const teamMembers = [
-    { name: '张文博', role: '队长', avatar: '/api/placeholder/150/150' },
-    { name: '李雅轩', role: '副队长', avatar: '/api/placeholder/150/150' },
-    { name: '王诗涵', role: '文化组长', avatar: '/api/placeholder/150/150' },
-    { name: '陈致远', role: '调研组长', avatar: '/api/placeholder/150/150' },
-    { name: '刘雨桐', role: '记录组长', avatar: '/api/placeholder/150/150' },
-    { name: '赵梓萱', role: '宣传组长', avatar: '/api/placeholder/150/150' },
-  ];
-
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-stone-50 to-stone-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,37 +37,29 @@ export default function About() {
             <ul className="space-y-4 text-stone-800">
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-stone-600 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                <span>深入调研8个传统村落，收集家风故事200余篇</span>
+                <span><strong>新闻投稿：</strong>完成多篇新闻稿件投稿，展示实践团队调研成果与文化传播成效</span>
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-stone-600 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                <span>举办家风文化展览12场，吸引观众1500余人次</span>
+                <span><strong>家风荟萃：</strong>完成10篇家风荟萃文章，深度挖掘皖南地区优秀家风文化</span>
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-stone-600 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                <span>开展传统文化教育课程20课时，惠及学生300余人</span>
+                <span><strong>家风札记：</strong>撰写30篇家风札记，记录调研过程中的文化感悟与思考</span>
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-stone-600 rounded-full mt-2 mr-4 flex-shrink-0"></span>
-                <span>完成调研报告3篇，为乡村振兴提供文化建议</span>
+                <span><strong>调研报告：</strong>完成皖南家风文化调研报告，为乡村振兴提供文化支撑建议</span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-stone-600 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                <span><strong>视频制作：</strong>完成总体实践视频1部、王稼祥专题视频1部，展现实践历程</span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-stone-600 rounded-full mt-2 mr-4 flex-shrink-0"></span>
+                <span><strong>结项报告：</strong>完成三下乡社会实践结项报告，总结活动经验与成果</span>
               </li>
             </ul>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-4xl font-bold text-center text-stone-900 mb-12 font-serif">实践团队</h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="text-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-stone-200 to-stone-300 rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-stone-400 shadow-lg">
-                  <span className="text-stone-600 text-sm font-medium">{member.name.slice(0, 1)}</span>
-                </div>
-                <h4 className="font-bold text-stone-900 mb-1">{member.name}</h4>
-                <p className="text-stone-600 text-sm">{member.role}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
