@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronRight } from 'lucide-react';
+
 import { FamilyData } from '@/data/families';
 
 interface FamilySidebarProps {

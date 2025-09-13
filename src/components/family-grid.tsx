@@ -2,7 +2,7 @@
 
 import { families, FamilyData } from '@/data/families';
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+
 
 const prominentFamilies = families.filter(f => 
   ['mei', 'hu', 'tao', 'zhu', 'wang', 'xu', 'huang', 'zhang', 'cheng', 'wang_s'].includes(f.id)
@@ -23,7 +23,7 @@ export default function FamilyGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-          {prominentFamilies.map((family, index) => (
+          {prominentFamilies.map((family) => (
             <div 
               key={family.id} 
               className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-stone-200 overflow-hidden group"

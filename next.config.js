@@ -8,6 +8,8 @@ const nextConfig = {
   assetPrefix: process.env.VERCEL_URL ? '' : process.env.NEXT_PUBLIC_BASE_PATH || '',
   // 确保静态资源正确加载
   trailingSlash: true,
+  // 确保输出格式正确
+  output: 'standalone',
 }
 
 module.exports = nextConfig

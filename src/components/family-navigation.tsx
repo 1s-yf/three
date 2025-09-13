@@ -5,7 +5,7 @@ import { FamilyData } from '@/data/families';
 interface FamilyNavigationProps {
   selectedFamily: string | null;
   onFamilySelect: (familyId: string | null) => void;
-  prominentFamilies: FamilyData[];
+  prominentFamilies: any[];
 }
 
 export default function FamilyNavigation({ selectedFamily, onFamilySelect, prominentFamilies }: FamilyNavigationProps) {

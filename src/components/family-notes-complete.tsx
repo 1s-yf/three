@@ -43,7 +43,7 @@ export default function FamilyNotesComplete({ familyId, familyName, familyColor 
         </div>
 
         <div className="grid gap-8">
-          {notes.map((note, index) => (
+          {notes.map((note) => (
             <article 
               key={note.id}
               className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 overflow-hidden"
