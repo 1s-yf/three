@@ -125,7 +125,7 @@ export default function FamilyNotesComplete({ familyId, familyName, familyColor 
         <div className="mt-12 text-center">
           <div className="bg-gradient-to-r from-stone-100 to-stone-50 p-6 rounded-lg border border-stone-200">
             <p className="text-lg text-stone-700 italic font-serif mb-2">
-              "一字一句，皆是家风传承；一文一札，尽是文化记忆"
+              &ldquo;一字一句，皆是家风传承；一文一札，尽是文化记忆&rdquo;
             </p>
             <p className="text-sm text-stone-600">
               本栏目内容由<strong className="text-stone-800">皖南家风探寻团队</strong>撰写整理

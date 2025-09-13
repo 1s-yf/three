@@ -4,7 +4,14 @@ import { families, FamilyData } from '@/data/families';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
-const familyHeritageContent = {
+interface FamilyHeritageContent {
+  [key: string]: {
+    title: string;
+    content: string;
+  };
+}
+
+const familyHeritageContent: FamilyHeritageContent = {
   'mei': {
     title: '梅氏家风：崇文重教、清廉守正、耕读传家',
     content: `宁国梅氏是皖南地区最负盛名的文化世家之一，自宋代以来，以天文历算传家，崇文重教，家学渊源深厚。梅氏家族历史悠久，源远流长，早在北宋时期就已在宣城地区繁衍生息，形成了独特的家风传统。
@@ -168,7 +175,7 @@ function FamilyHeritageAccordion() {
                 <span className="text-3xl mr-4">{family.emblem}</span>
                 <div>
                   <h3 className="text-2xl font-bold text-stone-800 font-serif">{family.name}</h3>
-                  <p className="text-stone-600 mt-1">{(familyHeritageContent as any)[family.id]?.title || '家风特色'}</p>
+                  <p className="text-stone-600 mt-1">{familyHeritageContent[family.id]?.title || '家风特色'}</p>
                 </div>
               </div>
               <div className="text-stone-500">
@@ -183,7 +190,7 @@ function FamilyHeritageAccordion() {
             <div className="px-8 pb-8 border-t border-stone-200">
               <div className="pt-6">
                 <div className="text-stone-700 leading-relaxed whitespace-pre-line text-lg space-y-4" style={{textIndent: '2em', lineHeight: '1.8'}}>
-                  {(familyHeritageContent as any)[family.id]?.content || getFamilyHeritage(family.id)}
+                  {familyHeritageContent[family.id]?.content || getFamilyHeritage(family.id)}
                 </div>
               </div>
             </div>
@@ -218,7 +225,7 @@ export default function FamilyHeritage() {
 
         <div className="mt-16 text-center">
           <p className="text-lg text-stone-600 italic font-serif">
-            "千年家风，一脉相承；十姓荟萃，共铸文明"
+            &ldquo;千年家风，一脉相承；十姓荟萃，共铸文明&rdquo;
           </p>
         </div>
       </div>

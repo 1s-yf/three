@@ -41,7 +41,7 @@ export default function FamilyGrid() {
 
         <div className="mt-12 text-center">
           <p className="text-lg text-stone-600 italic font-serif">
-            "十姓传承，文脉绵延"
+            &ldquo;十姓传承，文脉绵延&rdquo;
           </p>
         </div>
       </div>

@@ -50,7 +50,7 @@ export default function ClosingPage() {
         <div className="bg-white p-12 rounded-2xl shadow-xl border border-stone-200">
           <div className="text-center">
             <p className="text-lg text-stone-700 mb-4">
-              <em className="font-serif">"家风正则民风淳，民风淳则社稷安"</em>
+              <em className="font-serif">&ldquo;家风正则民风淳，民风淳则社稷安&rdquo;</em>
             </p>            
             <p className="text-sm text-stone-600">
               让我们携手传承优秀传统文化，共同建设美好家园
