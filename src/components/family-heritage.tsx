@@ -183,7 +183,7 @@ function FamilyHeritageAccordion() {
             <div className="px-8 pb-8 border-t border-stone-200">
               <div className="pt-6">
                 <div className="text-stone-700 leading-relaxed whitespace-pre-line text-lg space-y-4" style={{textIndent: '2em', lineHeight: '1.8'}}>
-                  {familyHeritageContent[family.id]?.content || getFamilyHeritage(family.id)}
+                  {(familyHeritageContent as any)[family.id]?.content || getFamilyHeritage(family.id)}
                 </div>
               </div>
             </div>

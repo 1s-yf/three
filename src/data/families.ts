@@ -17,6 +17,16 @@ export interface BiographySection {
   image?: string;
 }
 
+export interface GalleryImage {
+  id: string;
+  title: string;
+  description: string;
+  ancient?: string;
+  modern?: string;
+  year?: number;
+  location?: string;
+}
+
 
 export interface ResearchArticle {
   id: string;
